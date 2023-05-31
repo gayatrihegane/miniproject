@@ -1,0 +1,31 @@
+{%extends "showallitems.html"%}
+{%block content}
+
+<div class="container">
+<h1>Details</h1>
+<form  method="post" action="/showcartitems">
+    
+<table class="table">
+    <tr><td>Name</td>
+    <td>{{cafe[1]}}<input type="hidden" name="itemnm" value="{{cafe[1]}}"></tr></td>
+    <tr><td>Price</td>
+        <td>{{cafe[2]}}<input name="price" value="{{cafe[2]}}"></td></tr>
+    <tr><td>Image</td>
+        <td><img src="/static/image/{{cafe[3]}}" style="height:300px;width:300px"/></td></tr>
+    <tr><td>Quantity</td>
+    <td><select name="qty">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </select></td></tr>
+    <tr><td>
+        <button type="submit"  class="button btn-success" >Add To Cart</button>
+    </td></tr>
+    </table>
+</form>
+</div>
+
+
+{%end block%}

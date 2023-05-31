@@ -1,0 +1,38 @@
+{%extends "showallitems.html"%}
+
+{%block content%}
+
+<div class="container">
+    <div class="row">
+
+        <table class="table">
+        <tr> 
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Quantity</th>
+            <th>Add</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for cafe in cafe%}
+        <tr>
+            <td>{{cafe[0]}}</td>
+            <td>{{cafe[1]}}</td>
+            <td>{{cafe[2]}}</td>
+            <td>{{cafe[3]}}</td>
+            <td>{{cafe[4]}}</td>
+        </tr>
+        {% endfor %}
+
+
+
+
+        </table>
+    </div>
+    <br>
+
+
+</div>
+{%endblock%}

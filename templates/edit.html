@@ -1,0 +1,34 @@
+{%extends "showallitems.html"%}
+
+{%block content %}
+
+<div class="container">
+<h1>Edit Item</h1>
+<form method="post">
+<table class="table">
+    <tr><td>Item Name</td>
+        <td><input type="text" required class="form-control"  name="itemnm"/></td>
+    </tr> 
+   
+    <tr>
+        <td>Price</td>
+        <td><input type="text" required clas="form-control" name="price" value="{{cafe[2]}}"/></td>
+    </tr>
+    <tr>
+        <td>Image</td>
+        <td><input type="file" required clas="form-control" name="photo" value="{{cafe[3]}}"/></td>
+    </tr>
+    <tr>
+        <td>Quantity</td>
+        <td><input type="text" required clas="form-control" name="qty" value="{{cafe[4]}}"/></td>
+    </tr>
+    <tr>
+        <td> <button class="button btn-success" type="submit">Edit </button></td>
+    </tr>
+       
+       
+
+</table>
+</form>
+</div>
+{%endblock%}

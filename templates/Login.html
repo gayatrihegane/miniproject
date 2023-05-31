@@ -1,0 +1,24 @@
+{%extends "showallitems.html"%}
+
+{%block Content%}
+
+<div class="container">
+<h1>Login</h1>
+
+<tr> Invalid Username or Password</tr>
+{%end if%} 
+<form  method="post">
+<table class="table">
+    <tr><td>Enter Login Id</td> 
+        <td><input type="text" required class="form-control" name="unm" /></td></tr>
+    <tr><td>Enter Password</td>
+        <td><input type="password" required class="form-control" name="pwd"/></td></tr>  
+         
+    <tr><td>
+        <button type="submit" class="button btn-success" >Login</button>
+    </td></tr>
+
+</table>
+</form>
+</div>
+{%endblock%}

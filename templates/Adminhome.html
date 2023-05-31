@@ -1,0 +1,55 @@
+
+
+{%extends "showallitems.html"%}
+
+{%block content%}
+
+<script type="text/javascript">
+    function ShowConfirm(id)
+    {
+        ans = confirm("Are you sure you want to delete(y/n)?");
+        if(ans == true)
+        {
+            url= "http://127.0.0.1:5000/Removeitem/"+id;
+            window.location=url; //redirect to another url
+        }        
+    }
+</script>
+
+<div class="container">    
+  <div class="row">
+
+   <table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Quantity</th>
+        <th>Image</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+    {%for cafe in cafe %}
+    <tr>
+        <td>{{cafe[0]}}</td>
+        <td>{{cafe[1]}}</td>
+        <td>{{cafe[2]}}</td>
+        <td>{{cafe[3]}}</td>
+        <td>{{cafe[4]}}</td>
+        <td> <img src="/static/image/{{cafe[3]}}" 
+            style="width:100px;height:100px;" alt="Image"></td>
+        <td><a href="edit/{{cafe[0]}}" class="btn btn-danger">Edit</a></td>
+        <td><button type="button" class="button btn-danger" 
+            onclick="ShowConfirm('{{cafe[0]}}')">Remove</button></td>
+        </tr>
+       
+    
+    {%endfor%}
+   </table>
+   <tr> <a href="/additem" class="button btn btn-danger">Aditem</a></tr>
+</div><br>
+<br><br>
+
+{%endblock%}

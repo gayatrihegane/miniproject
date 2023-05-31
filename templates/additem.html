@@ -1,0 +1,24 @@
+{%extends "showallitems.html" %}
+
+{%block content%}
+<div class="container">
+<h1>Add Item</h1>
+
+<form method="post" enctype ="multipart/form-data">
+<table class="table">
+    <tr><td>Item Name</td>
+        <td><input type="text" required class="form-control"  name="itemnm"/></td></tr> 
+    <tr><td>Item Price</td>
+        <td><input type="number" required class="form-control" name="price" /></td></tr>   
+    <tr><td>Upload Image </td>
+        <td><input type="file" required class="form-control" name="photo"/></td></tr>   
+    <tr><td>Quantity </td>
+    <td><input type="number" required-class="form-control" name="qty"/></td></tr>   
+    <tr><td>
+        <button class="button btn-success" type="submit">Add Item</button>
+    </td></tr>
+                    
+</table>
+</form>
+</div>
+{%endblock%}

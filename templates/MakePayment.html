@@ -1,0 +1,25 @@
+{%extends "showallitems.html"%}
+{%block content%}
+
+<div class="container">
+    <h1>Make Payment</h1>
+    
+<form  method="post">
+    <table class="table">
+        <tr><td>Enter Card No.</td>
+        <td><input type="text" name="cdno" 
+            placeholder="Card Number" required class="form-control"/></td></tr>
+        <tr><td>Enter CVV </td>
+            <td><input type="text" name="cvv"
+               required class="form-control" placeholder="Enter CVV"/></td></tr>
+        <tr><td>Enter Expiry </td>
+        <td><input type="text" name="expdt"
+            required class="form-control" placeholder="Enter expiry"/></td></tr>
+        <tr><td>Amount </td>
+        <td><input type="text" name="total" 
+            value="{{session['total']}}" required class="form-control" readonly/></td></tr>
+        <tr><td><button type="submit" class="button btn-success" value="Make Payment"/>Make Payment</td>
+        <td></td></tr>
+    </table>
+</form></div>
+{%endblock%}

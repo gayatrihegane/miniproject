@@ -1,0 +1,70 @@
+{% extends "showallitems.html"%}
+{%block content%}
+
+<script type="text/javascript">
+    function increment(id)
+    {
+        val = document.getElementById(id);
+
+        if(parseInt(val.value)<5)
+        {
+            val.value = parseInt(val.value)+1;
+        }
+    }
+    function decrement(id)
+    {
+        val = document.getElementById(id);
+
+        if(parseInt(val.value)>1)
+        {
+            val.value = parseInt(val.value)-1;
+        }
+    }
+</script>
+<div class="container">
+
+    <h1>Show All Items</h1>
+    <hr/>
+   
+    <p></p>
+    <table class="table">
+    <tr><th>Item Id</th>
+        <th>Item Name</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Quantity</th>
+        <th>Update Item</th>
+        <th>Remove Item</th>
+    </tr>
+        {%for cafe in cafe%}
+        <form method="post" action="/Updateitem">
+        <tr>
+            <td>{{cafe[0]}}<input  type="hidden" name="id" value="{{cafe[0]}}"/></td>
+            <td>{{cafe[1]}}</td>
+            <td>{{cafe[2]}}</td>
+            <td><img src="/static/image/{{cafe[3]}}" height="40px" width="40px"/></td>
+            <td>
+
+                <input type="button" onclick="decrement('qty{{cafe[0]}}')" value="-"/>
+
+                <input type="text" name="qty" id="qty{{cafe[0]}}" value="{{cafe[4]}}" size="1" readonly/>
+                
+                <input type="button" onclick="increment('qty{{cafe[0]}}')" value="+"/>
+            
+            </td>
+            <td>
+                <input type="submit" name="action" value="Update"/>            
+            </td>
+            <td><a href="/RemovefromCart/{{cafe[0]}}">Remove</a></td>
+        </tr>
+        </form>
+        {%endfor%}
+    </table>
+    <p/>
+    <h2>Total Amount = {{session["total"]}}</h2>
+    
+    <a href="/MakePayment">Proceed payment</a>
+    <p/>
+    
+</div>
+{%endblock%}
